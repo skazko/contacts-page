@@ -7,7 +7,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.Modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.Modal-Body {
+  position: absolute;
+  background: #fff;
+  top: 25px;
+  left: 10%;
+  right: 10%;
+  padding: 15px;
+  border: 2px solid red;
 }
