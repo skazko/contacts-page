@@ -1,0 +1,28 @@
+{
+  "contacts": [
+    {
+      "name": "Ivan",
+      "email": "d",
+      "phone": "dfd",
+      "id": "PtSmKla"
+    },
+    {
+      "name": "VVV",
+      "email": "d",
+      "phone": "dfd",
+      "id": "PtSdsfmKla"
+    },
+    {
+      "name": "John",
+      "email": "jon@jons",
+      "phone": "+9865656565",
+      "id": "NufCKzh"
+    },
+    {
+      "name": "Nik",
+      "email": "-",
+      "phone": "-",
+      "id": "VUlsoFp"
+    }
+  ]
+}
