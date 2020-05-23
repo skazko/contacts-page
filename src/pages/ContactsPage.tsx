@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchContacts } from '../actions';
 import { StoreState } from '../reducers';
 import { ContactsState } from '../reducers/contacts';
-import { ContactsList } from './ContactsList';
+import { ContactsList } from '../components/ContactsList';
 
 interface ContactsPageProps {
   contacts: ContactsState;
@@ -17,21 +17,14 @@ class _ContactsPage extends React.Component<ContactsPageProps> {
 
   render() {
     const { pending, error } = this.props.contacts;
-    if (pending) {
-      return <div>Pending</div>;
-    }
+    // if (pending) {
+    //   return <div>Pending</div>;
+    // }
     if (error) {
       return <div>Error</div>;
     }
     return (
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+      <div className="container">
         <ContactsList contacts={this.props.contacts.data} />
       </div>
     );
