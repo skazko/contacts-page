@@ -67,7 +67,6 @@ export const addContact = (contact: Contact) => {
       axios
         .put<Contact>(url + contact.id, contact)
         .then((response) => {
-          console.log(response);
           dispatch<UpdateContactAction>({
             type: ActionTypes.updateContact,
             payload: response.data,
@@ -80,7 +79,6 @@ export const addContact = (contact: Contact) => {
       axios
         .post<Contact>(url, contact)
         .then((response) => {
-          console.log(response);
           dispatch<AddContactAction>({
             type: ActionTypes.addContact,
             payload: response.data,

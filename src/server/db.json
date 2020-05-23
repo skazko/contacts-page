@@ -1,28 +1,16 @@
 {
   "contacts": [
     {
-      "name": "Ivan",
-      "email": "d",
-      "phone": "dfd",
-      "id": "PtSmKla"
+      "name": "ГенаГена",
+      "email": "ya@ya.ru",
+      "phone": "+7495-6747898",
+      "id": "qDlBPWr"
     },
     {
-      "name": "VVV",
-      "email": "d",
-      "phone": "dfd",
-      "id": "PtSdsfmKla"
-    },
-    {
-      "name": "John",
-      "email": "jon@jons",
-      "phone": "+9865656565",
-      "id": "NufCKzh"
-    },
-    {
-      "name": "Nik",
-      "email": "-",
-      "phone": "-",
-      "id": "VUlsoFp"
+      "name": "Slava",
+      "email": "post@sample.ru",
+      "phone": "+7-777-777-77-77",
+      "id": "Fc8W4fI"
     }
   ]
 }

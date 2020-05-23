@@ -7,21 +7,79 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body,
+html {
+  background-color: #e0e0e0;
+}
+
 .Modal {
-  position: absolute;
+  z-index: 2;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .Modal-Body {
-  position: absolute;
+  z-index: 3;
+  position: fixed;
+  top: 10%;
+  left: 0;
+  right: 0;
   background: #fff;
-  top: 25px;
-  left: 10%;
-  right: 10%;
-  padding: 15px;
-  border: 2px solid red;
+  max-height: 70%;
+  max-width: 480px;
+  margin: auto;
+  overflow-y: auto;
+  border-radius: 2px;
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+}
+
+.Modal-Content {
+  padding: 24px;
+}
+
+.Modal-Header {
+  margin-bottom: 24px;
+}
+
+.Modal-Header h4 {
+  margin: 0;
+}
+
+.Modal-Footer {
+  text-align: right;
+}
+
+.Login {
+  background-color: #fff;
+  padding: 30px;
+  max-width: 360px;
+  margin: 4rem auto 0;
+  text-align: right;
+}
+
+.Login h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+/* label focus color */
+.Login .input-field input[type='text']:focus + label,
+.Login .input-field input[type='password']:focus + label {
+  color: #ff6d00;
+}
+/* label underline focus color */
+.Login .input-field input[type='text']:focus,
+.Login .input-field input[type='password']:focus {
+  border-bottom: 1px solid #ff6d00;
+  box-shadow: 0 1px 0 0 #ff6d00;
+}
+
+/* icon prefix focus color */
+.Login .input-field .prefix.active {
+  color: #ff6d00;
 }

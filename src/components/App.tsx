@@ -1,45 +1,57 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
-  useLocation,
-} from 'react-router-dom';
-import { ContactsPage } from './ContactsPage';
-import { Modal } from './Modal';
+import { connect } from 'react-redux';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { ModalSwitch } from './ModalSwitch';
+import { StoreState } from '../reducers';
+import { logout } from '../actions';
 
-export const App: React.FC = () => {
+interface AppProps {
+  isAuthenticated: boolean;
+  logout: typeof logout;
+}
+
+const _App: React.FC<AppProps> = ({ isAuthenticated, logout }) => {
+  const onLogout = (e: React.BaseSyntheticEvent): void => {
+    e.preventDefault();
+    logout();
+  };
   return (
     <Router>
+      <nav className="light-blue darken-4">
+        <div className="nav-wrapper container">
+          <Link className="brand-logo left" to="/">
+            Главная
+          </Link>
+          {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger"> */}
+          {/* <i className="material-icons">menu</i>
+          </a> */}
+          <ul id="nav-mobile" className="right">
+            <li>
+              <Link to="/contacts">Контакты</Link>
+            </li>
+            {isAuthenticated ? (
+              <li>
+                <a href="#" onClick={onLogout}>
+                  Выйти
+                </a>
+              </li>
+            ) : (
+              <li>
+                <Link to="/login">Войти</Link>
+              </li>
+            )}
+          </ul>
+        </div>
+      </nav>
       <ModalSwitch />
     </Router>
   );
 };
 
-const HomePage: React.FC = () => {
-  return (
-    <div>
-      <Link to="/contacts">Контакты</Link>
-      <Link to="/login">Войти</Link>
-    </div>
-  );
+const mapStateToProps = (state: StoreState): { isAuthenticated: boolean } => {
+  return {
+    isAuthenticated: state.fakeAuth.isAuthenticated,
+  };
 };
 
-interface ModalLocationState {
-  background?: any;
-}
-
-const ModalSwitch: React.FC = () => {
-  let location = useLocation<ModalLocationState>();
-  let background = location.state && location.state.background;
-  return (
-    <div>
-      <Switch location={background || location}>
-        <Route exact path="/" children={<HomePage />} />
-        <Route path="/contacts" children={<ContactsPage />} />
-      </Switch>
-      {background && <Route path="/contacts/:id" children={<Modal />} />}
-    </div>
-  );
-};
+export const App = connect(mapStateToProps, { logout })(_App);
