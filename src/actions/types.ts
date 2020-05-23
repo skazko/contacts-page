@@ -7,6 +7,8 @@ import {
   UpdateContactAction,
 } from './contacts';
 
+import { AuthAction, WrongAuthAction, LogoutAction } from './auth';
+
 export enum ActionTypes {
   fetchContactsSucces,
   fetchContactsPending,
@@ -14,6 +16,9 @@ export enum ActionTypes {
   addContact,
   deleteContact,
   updateContact,
+  authenticate,
+  wrongAuth,
+  logout,
 }
 
 export type Action =
@@ -22,4 +27,7 @@ export type Action =
   | FetchContactsErrorAction
   | FetchContactsPendingAction
   | AddContactAction
-  | UpdateContactAction;
+  | UpdateContactAction
+  | AuthAction
+  | WrongAuthAction
+  | LogoutAction;
