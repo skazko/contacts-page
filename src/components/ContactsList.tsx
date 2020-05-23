@@ -9,31 +9,41 @@ interface ContactsListProps {
 export const ContactsList: React.FC<ContactsListProps> = (props) => {
   const location = useLocation();
   return (
-    <>
+    <div className="card-panel white">
       <Link
+        className="btn-floating btn-large waves-effect waves-light orange accent-4 right"
         to={{
           pathname: `/contacts/createNewContact`,
           state: { background: location },
         }}
       >
-        Добавить контакт
+        <i className="material-icons">person_add</i>
       </Link>
-      <ul>
+      <h1>Список контактов</h1>
+      <ul className="collection">
         {props.contacts.map((contact: Contact) => {
           return (
-            <li key={contact.id}>
+            <li key={contact.id} className="collection-item avatar">
+              <i className="material-icons circle">person</i>
+              <span className="title">{contact.name}</span>
+              <p>
+                {contact.email}
+                <br />
+                {contact.phone}
+              </p>
               <Link
+                className="secondary-content"
                 to={{
                   pathname: `/contacts/${contact.id}`,
                   state: { background: location },
                 }}
               >
-                <p>{contact.name}</p>
+                <i className="material-icons">create</i>
               </Link>
             </li>
           );
         })}
       </ul>
-    </>
+    </div>
   );
 };
